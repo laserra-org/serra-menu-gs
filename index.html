@@ -152,6 +152,50 @@
 
         </div>
 
+        <!-- Tab Cucina -->
+        <div id="cucina" class="section">
+            <div class="wrapper-section">
+                <div class="title">
+                    <img src="./images/letter_a.svg">
+                    <img src="./images/letter_n.svg">
+                    <img src="./images/letter_t.svg">
+                    <img src="./images/letter_i.svg">
+                    <img src="./images/letter_p.svg">
+                    <img src="./images/letter_a.svg">
+                    <img src="./images/letter_s.svg">
+                    <img src="./images/letter_t.svg">
+                    <img src="./images/letter_i.svg">
+                </div>
+                <p>I nostri aperitivi sono disponibili tutta la sera, ma fino alle 19:30 ti bastano 3 EUR per abbinarne uno al tuo drink preferito:</p>
+                <ul id="antipasti-list"></ul>
+                <p></p>
+            </div>
+            <div class="wrapper-section">
+                <div class="title">
+                    <img src="./images/letter_p.svg">
+                    <img src="./images/letter_i.svg">
+                    <img src="./images/letter_a.svg">
+                    <img src="./images/letter_t.svg">
+                    <img src="./images/letter_t.svg">
+                    <img src="./images/letter_i.svg">
+                </div>
+                <p></p>
+                <ul id="cucina-list"></ul>
+                <p></p>
+            </div>
+            <div class="wrapper-section">
+                <div class="title">
+                    <img src="./images/letter_d.svg">
+                    <img src="./images/letter_o.svg">
+                    <img src="./images/letter_l.svg">
+                    <img src="./images/letter_c.svg">
+                    <img src="./images/letter_i.svg">
+                </div>
+                <p>I nostri dolci sono fatti in casa, dal nostro laboratorio pasticceria.</p>
+                <ul id="dolci-list"></ul>
+            </div>
+        </div>
+
         <!-- Tab Pizzeria -->
         <div id="pizzeria" class="section">
             <div class="wrapper-section">
@@ -180,14 +224,8 @@
             </div>
         </div>
 
-        <!-- Tab Cucina -->
-        <div id="cucina" class="section">
-            <div class="wrapper-section">
-                <div class="title"></div>
-                <p>I nostri aperitivi sono disponibili tutta la sera, ma fino alle 19:30 ti bastano 3 EUR per abbinarne uno al tuo drink preferito:</p>
-                <ul id="cucina-list"></ul>
-                <p></p>
-            </div>
+        <!-- Tab Pub -->
+        <div id="pub" class="section">
             <div class="wrapper-section">
                 <div class="title">
                     <img src="./images/letter_b.svg">
@@ -213,17 +251,6 @@
                 <p></p>
                 <ul id="fritti-list"></ul>
                 <p></p>
-            </div>
-            <div class="wrapper-section">
-                <div class="title">
-                    <img src="./images/letter_d.svg">
-                    <img src="./images/letter_o.svg">
-                    <img src="./images/letter_l.svg">
-                    <img src="./images/letter_c.svg">
-                    <img src="./images/letter_i.svg">
-                </div>
-                <p>I nostri dolci sono fatti in casa, dal nostro laboratorio pasticceria.</p>
-                <ul id="dolci-list"></ul>
             </div>
         </div>
 
@@ -286,9 +313,10 @@
     <footer>
         <ul id="navigation-list">
             <li data-tab="tab_1" class="item active" style="background-image: url(./images/icon_wine.svg)"></li>
-            <li data-tab="tab_2" class="item " style="background-image: url(./images/icon_pizza.svg)"></li>
-            <li data-tab="tab_3" class="item " style="background-image: url(./images/icon_burger.svg)"></li>
-            <li data-tab="tab_4" class="item " style="background-image: url(./images/icon_coffee3.svg)"></li>
+            <li data-tab="tab_2" class="item " style="background-image: url(./images/icon_pasta.svg)"></li>
+            <li data-tab="tab_3" class="item " style="background-image: url(./images/icon_pizza.svg)"></li>
+            <li data-tab="tab_4" class="item " style="background-image: url(./images/icon_burger.svg)"></li>
+            <li data-tab="tab_5" class="item " style="background-image: url(./images/icon_coffee3.svg)"></li>
             <!-- <li data-tab="tab_5" class="item " style="background-image: url(./images/icon_info.svg)"></li> -->
         </ul>
     </footer>
@@ -296,10 +324,10 @@
     <script>
         const tab = {
             tab_1: ['beverage'],
-            tab_2: ['pizzeria'],
-            tab_3: ['cucina'],
-            tab_4: ['caffetteria'],
-            tab_5: ['info']
+            tab_2: ['cucina'],
+            tab_3: ['pizzeria'],
+            tab_4: ['pub'],
+            tab_5: ['caffetteria']
         }
 
         function gapiLoaded() {
@@ -360,6 +388,7 @@
                 let fritti = ''
                 let dolci = ''
                 let caffetteria = ''
+                let antipasti = ''
                 let bar = ''
                 result.values.map((v, k) => {
                     if (k > 0) {
@@ -416,6 +445,10 @@
                                 case 'caffetteria':
                                     caffetteria += createElement(v)
                                     document.getElementById(v[0] + '-list').innerHTML = caffetteria
+                                    break
+                                case 'antipasti':
+                                    antipasti += createElement(v)
+                                    document.getElementById(v[0] + '-list').innerHTML = antipasti
                                     break
                                 case 'bar':
                                     bar += createElement(v)
